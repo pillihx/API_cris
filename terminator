@@ -1,0 +1,23 @@
+#!/usr/bin/env php
+<?php
+require __DIR__ . '/vendor/autoload.php';
+
+/*require_once(__DIR__ . '/bin/CreateModelCommand.php');
+require_once(__DIR__ . '/bin/CreateTableCommand.php');*/
+
+foreach(glob( __DIR__ . "/bin/*.php") as $file){
+	require_once($file);
+}
+
+use Symfony\Component\Console\Application;
+
+//use Symfony Library
+$application = new Application("Slim Console Application","1.0");
+# add our commands
+
+//LIST OF COMMANDS
+$application->add(new CreateModelCommand()); //php terminator create:model
+$application->add(new CreateTableCommand()); //php terminator create:table name_table
+
+//RUN APPLICATION
+$application->run();

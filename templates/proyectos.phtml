@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" href="../../favicon.ico">
+
+	<title>The Wow Group</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="../../libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<link href="../../libs/ie10-viewport-bug-workaround.css" rel="stylesheet">
+	<link href="../../libs/datatables/css/dataTables.bootstrap.css" rel="stylesheet">
+	<link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link href="../../css/dashboard.css" rel="stylesheet">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">The Wow Group</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Panel</a></li>
+					<li><a href="#">Configuración</a></li>
+					<li><a href="#">Perfil</a></li>
+					<li><a href="#">Ayuda</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="modal fade" id="modal-proyecto" tabindex="-1" role="dialog" aria-labelledby="Proyecto">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="Proyecto">Añadir proyecto</h4>
+				</div>
+				<form class="form-horizontal" id="form-add" action="http://localhost/public/proyecto" method="post">
+					<div class="modal-body">
+							<div class="form-group">
+								<label for="nombre" class="col-sm-2 control-label">Nombre</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre de proyecto" required="" autofocus="">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="descripcion" class="col-sm-2 control-label">Descripción</label>
+								<div class="col-sm-10">
+									<textarea class="form-control" id="descripcion" name="descripcion" placeholder="Describa brevemente el proyecto"></textarea>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="cliente" class="col-sm-2 control-label">Cliente</label>
+								<div class="col-sm-10">
+									<select class="form-control" id="cliente" name="cliente">
+										<option>a</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="responsable" class="col-sm-2 control-label">Responsable</label>
+								<div class="col-sm-10">
+									<select class="form-control" id="responsable" name="responsable">
+										<option>a</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inicio" class="col-sm-2 control-label">Inicio</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="inicio" name="inicio" placeholder="Inicio del proyecto" required="">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="fin" class="col-sm-2 control-label">Fin</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="fin" name="fin" placeholder="Fin del proyecto">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="prioridad" class="col-sm-2 control-label">Prioridad</label>
+								<div class="col-sm-10">
+									<select class="form-control" id="prioridad" name="prioridad">
+										<option>Baja</option>
+										<option>Media</option>
+										<option>Alta</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="orden" class="col-sm-2 control-label">Orden</label>
+								<div class="col-sm-10">
+									<input type="number" class="form-control" id="orden" name="orden" placeholder="1" min="1">
+								</div>
+							</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+						<button type="submit" class="btn btn-primary" id="form-save">Guardar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3 col-md-2 sidebar">
+				<ul class="nav nav-sidebar">
+					<li><a href="#">Panel</a></li>
+					<li class="active"><a href="#">Proyectos <span class="sr-only">(actual)</span></a></li>
+					<li><a href="#">.</a></li>
+					<li><a href="#">..</a></li>
+				</ul>
+				<ul class="nav nav-sidebar">
+					<li><a href="">Nav item</a></li>
+					<li><a href="">Nav item again</a></li>
+					<li><a href="">One more nav</a></li>
+					<li><a href="">Another nav item</a></li>
+					<li><a href="">More navigation</a></li>
+				</ul>
+				<ul class="nav nav-sidebar">
+					<li><a href="">Nav item again</a></li>
+					<li><a href="">One more nav</a></li>
+					<li><a href="">Another nav item</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<h1 class="page-header">Proyectos</h1>
+
+				<h2 class="sub-header">Lista de proyectos</h2>
+				<div class="row">
+					<div class="col-md-7">
+						<div class="form-group">
+							<div class="row">
+								<div class="col-md-1">
+									<select class="form-control" id="table-length" style="width: auto;">
+										<option value="10">10</option>
+										<option value="50">50</option>
+										<option value="100">100</option>
+										<option value="-1">Todos</option>
+									</select>
+								</div>
+								<div class="col-md-10">
+									<input class="form-control" id="table-search" type="text" placeholder="Buscar producto">
+								</div>
+								<div class="col-md-1" id="table-reset-container">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-5">
+						<div class="form-group text-right">
+							<div class="btn-group dropdown hidden-xs" id="table-export">
+								<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Exportar&nbsp;&nbsp;<span class="caret"></span></button>
+							</div>
+							<div class="btn-group"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-proyecto">Añadir proyecto</button></div>
+						</div>
+					</div>
+				</div>
+				<small id="table-info"></small>
+				<div class="table-responsive" width="100%">
+					<table class="table table-bordered table-filled table-striped table-hover" id="table">
+						<thead>
+							<tr>
+								<th class="id text-nowrap">Id</th>
+								<th class="nombre text-nowrap">Nombre</th>
+								<th class="cliente text-nowrap">Cliente</th>
+								<th class="responsable text-nowrap">Responsable</th>
+								<th class="inicio text-nowrap">Inicio</th>
+								<th class="fin text-nowrap">Fin</th>
+								<th class="avance text-nowrap">%</th>
+								<th class="prioridad text-nowrap">Prioridad</th>
+								<th class="orden text-nowrap">Orden</th>
+								<th class="estado text-nowrap">Estado</th>
+								<th class="accion"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php echo isset($lista_proyectos) ? $lista_proyectos : null; ?>
+						</tbody>
+					</table>
+				</div>
+				<div class="text-center" id="table-pagination"></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Bootstrap core JavaScript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="../../libs/jquery/jquery.min.js"><\/script>')</script>
+	<script src="../../libs/bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="../../js/modules/app.js"></script>
+
+	<script src="../../libs/moment/moment.js"></script>
+
+	<script src="../../libs/datatables/js/jquery.dataTables.js"></script>
+	<script src="../../libs/datatables/js/dataTables.bootstrap.js"></script>
+	<script src="../../libs/datatables/js/dataTables.select.js"></script>
+	<script src="../../libs/datatables/js/dataTables.buttons.js"></script>
+	<script src="../../libs/datatables/js/buttons.print.js"></script>
+	<script src="../../libs/datatables/js/buttons.html5.js"></script>
+	<script src="../../libs/datatables/js/buttons.bootstrap.js"></script>
+
+	<script src="../../libs/pdfmake/pdfmake.min.js"></script>
+	<script src="../../libs/pdfmake/vfs_fonts.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
+
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="../../libs/jqueryui/datepicker-es.js"></script>
+
+	<script src="../../js/widgets/table.js"></script>
+	<script src="../../js/widgets/form.js"></script>
+
+	<script src="../../js/modules/pages/proyectos.js"></script>
+
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<script src="../../libs/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>
