@@ -6,7 +6,7 @@ return array(
 			"id" => "INT AUTO_INCREMENT PRIMARY KEY",
 			"usuario_id" => "INT(11) NOT NULL",
 			"entrada" => "DATETIME",
-			"salida" => "DATETIME",
-			"FOREIGN" => "KEY (usuario_id) REFERENCES usuario(id)"
-		)
+			"salida" => "DATETIME"
+		),
+		"KEY (usuario_id) REFERENCES usuario(id)"
 );

@@ -8,4 +8,3 @@ return array(
 			"email" => "VARCHAR(255) NOT NULL"
 		)
 );
-

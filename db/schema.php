@@ -1,12 +1,15 @@
 <?php
 //SETTINGS
 $SETTINGS = require( __DIR__ . "/../app/settings.php");
-//MODELS
+//TABLES
 $files = glob($dir . '/*.php');
 $tables = array();
+$foreign = array();
 foreach(glob( __DIR__ . "/models/*.php") as $file){
 	$temp = require($file);
 	$tables[$temp[0]] = $temp[1];
+	if(isset($temp[2]))
+		$foreign[$temp[0]] = $temp[2];
 }
 //SEEDS
 $seeds = require("seeds.php");
@@ -14,5 +17,6 @@ $seeds = require("seeds.php");
 return array(
 	"dbname" => $SETTINGS["settings"]["db"]["dbname"],
 	"tables" => $tables,
-	"seeds" => $seeds
+	"seeds" => $seeds,
+	"foreign" => $foreign
 );

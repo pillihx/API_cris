@@ -1,0 +1,178 @@
+[2018-01-16 18:52:21] slim-app.DEBUG: {"result":{"content":"DROP DATABASE IF EXISTS api_cris","date":"2018-01-16 18:52:21"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:21] slim-app.DEBUG: {"result":{"content":"CREATE DATABASE IF NOT EXISTS api_cris","date":"2018-01-16 18:52:21"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:21] slim-app.DEBUG: {"result":{"content":"CREATE TABLE IF NOT EXISTS api_cris.registro (id INT AUTO_INCREMENT PRIMARY KEY)","date":"2018-01-16 18:52:21"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:21] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.usuario_id FROM registro","date":"2018-01-16 18:52:21"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:21] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:52:21"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:21] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.registro ADD usuario_id INT(11) NOT NULL","date":"2018-01-16 18:52:21"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:21] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.entrada FROM registro","date":"2018-01-16 18:52:21"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:21] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:52:21"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:21] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.registro ADD entrada DATETIME","date":"2018-01-16 18:52:21"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:21] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.salida FROM registro","date":"2018-01-16 18:52:21"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:21] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:52:21"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:21] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.registro ADD salida DATETIME","date":"2018-01-16 18:52:21"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:21] slim-app.DEBUG: {"result":{"content":"CREATE TABLE IF NOT EXISTS api_cris.tarjeta (id INT AUTO_INCREMENT PRIMARY KEY)","date":"2018-01-16 18:52:21"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:21] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.n_tarjeta FROM tarjeta","date":"2018-01-16 18:52:21"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:21] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:52:21"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:21] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.tarjeta ADD n_tarjeta INT(11) NOT NULL","date":"2018-01-16 18:52:21"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:21] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.usuario_id FROM tarjeta","date":"2018-01-16 18:52:21"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:21] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:52:21"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:21] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.tarjeta ADD usuario_id INT(11) NOT NULL","date":"2018-01-16 18:52:21"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:21] slim-app.DEBUG: {"result":{"content":"CREATE TABLE IF NOT EXISTS api_cris.usuario (id INT AUTO_INCREMENT PRIMARY KEY)","date":"2018-01-16 18:52:21"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:22] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.nombre FROM usuario","date":"2018-01-16 18:52:22"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:22] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:52:22"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:22] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.usuario ADD nombre VARCHAR(255) NOT NULL","date":"2018-01-16 18:52:22"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:22] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.email FROM usuario","date":"2018-01-16 18:52:22"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:22] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:52:22"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:22] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.usuario ADD email VARCHAR(255) NOT NULL","date":"2018-01-16 18:52:22"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:22] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.FOREIGN FROM registro","date":"2018-01-16 18:52:22"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:22] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:52:22"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:22] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.registro ADD FOREIGN KEY (usuario_id) REFERENCES usuario(id)","date":"2018-01-16 18:52:22"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:22] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:52:22"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:22] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.FOREIGN FROM tarjeta","date":"2018-01-16 18:52:22"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:22] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:52:22"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:22] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.tarjeta ADD FOREIGN KEY (usuario_id) REFERENCES usuario(id)","date":"2018-01-16 18:52:22"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:52:22] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:52:22"}} [] {"uid":"cda41c8"}
+[2018-01-16 18:53:55] slim-app.DEBUG: {"result":{"content":"DROP DATABASE IF EXISTS api_cris","date":"2018-01-16 18:53:55"}} [] {"uid":"18b090a"}
+[2018-01-16 18:53:55] slim-app.DEBUG: {"result":{"content":"CREATE DATABASE IF NOT EXISTS api_cris","date":"2018-01-16 18:53:55"}} [] {"uid":"18b090a"}
+[2018-01-16 18:53:55] slim-app.DEBUG: {"result":{"content":"CREATE TABLE IF NOT EXISTS api_cris.registro (id INT AUTO_INCREMENT PRIMARY KEY)","date":"2018-01-16 18:53:55"}} [] {"uid":"18b090a"}
+[2018-01-16 18:53:55] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.usuario_id FROM registro","date":"2018-01-16 18:53:55"}} [] {"uid":"18b090a"}
+[2018-01-16 18:53:55] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:53:55"}} [] {"uid":"18b090a"}
+[2018-01-16 18:53:55] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.registro ADD usuario_id INT(11) NOT NULL","date":"2018-01-16 18:53:55"}} [] {"uid":"18b090a"}
+[2018-01-16 18:53:55] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.entrada FROM registro","date":"2018-01-16 18:53:55"}} [] {"uid":"18b090a"}
+[2018-01-16 18:53:55] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:53:55"}} [] {"uid":"18b090a"}
+[2018-01-16 18:53:55] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.registro ADD entrada DATETIME","date":"2018-01-16 18:53:55"}} [] {"uid":"18b090a"}
+[2018-01-16 18:53:55] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.salida FROM registro","date":"2018-01-16 18:53:55"}} [] {"uid":"18b090a"}
+[2018-01-16 18:53:55] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:53:55"}} [] {"uid":"18b090a"}
+[2018-01-16 18:53:55] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.registro ADD salida DATETIME","date":"2018-01-16 18:53:55"}} [] {"uid":"18b090a"}
+[2018-01-16 18:53:55] slim-app.DEBUG: {"result":{"content":"CREATE TABLE IF NOT EXISTS api_cris.tarjeta (id INT AUTO_INCREMENT PRIMARY KEY)","date":"2018-01-16 18:53:55"}} [] {"uid":"18b090a"}
+[2018-01-16 18:53:55] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.n_tarjeta FROM tarjeta","date":"2018-01-16 18:53:55"}} [] {"uid":"18b090a"}
+[2018-01-16 18:53:55] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:53:55"}} [] {"uid":"18b090a"}
+[2018-01-16 18:53:55] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.tarjeta ADD n_tarjeta INT(11) NOT NULL","date":"2018-01-16 18:53:55"}} [] {"uid":"18b090a"}
+[2018-01-16 18:53:55] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.usuario_id FROM tarjeta","date":"2018-01-16 18:53:55"}} [] {"uid":"18b090a"}
+[2018-01-16 18:53:55] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:53:55"}} [] {"uid":"18b090a"}
+[2018-01-16 18:53:55] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.tarjeta ADD usuario_id INT(11) NOT NULL","date":"2018-01-16 18:53:55"}} [] {"uid":"18b090a"}
+[2018-01-16 18:53:55] slim-app.DEBUG: {"result":{"content":"CREATE TABLE IF NOT EXISTS api_cris.usuario (id INT AUTO_INCREMENT PRIMARY KEY)","date":"2018-01-16 18:53:55"}} [] {"uid":"18b090a"}
+[2018-01-16 18:53:55] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.nombre FROM usuario","date":"2018-01-16 18:53:55"}} [] {"uid":"18b090a"}
+[2018-01-16 18:53:55] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:53:55"}} [] {"uid":"18b090a"}
+[2018-01-16 18:53:55] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.usuario ADD nombre VARCHAR(255) NOT NULL","date":"2018-01-16 18:53:55"}} [] {"uid":"18b090a"}
+[2018-01-16 18:53:55] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.email FROM usuario","date":"2018-01-16 18:53:55"}} [] {"uid":"18b090a"}
+[2018-01-16 18:53:55] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:53:55"}} [] {"uid":"18b090a"}
+[2018-01-16 18:53:55] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.usuario ADD email VARCHAR(255) NOT NULL","date":"2018-01-16 18:53:55"}} [] {"uid":"18b090a"}
+[2018-01-16 18:53:55] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.registro ADD FOREIGN KEY (usuario_id) REFERENCES usuario(id)","date":"2018-01-16 18:53:55"}} [] {"uid":"18b090a"}
+[2018-01-16 18:53:55] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:53:55"}} [] {"uid":"18b090a"}
+[2018-01-16 18:53:55] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.tarjeta ADD FOREIGN KEY (usuario_id) REFERENCES usuario(id)","date":"2018-01-16 18:53:55"}} [] {"uid":"18b090a"}
+[2018-01-16 18:53:55] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:53:55"}} [] {"uid":"18b090a"}
+[2018-01-16 18:58:43] slim-app.DEBUG: {"result":{"content":"DROP DATABASE IF EXISTS api_cris","date":"2018-01-16 18:58:43"}} [] {"uid":"38c48a4"}
+[2018-01-16 18:58:43] slim-app.DEBUG: {"result":{"content":"CREATE DATABASE IF NOT EXISTS api_cris","date":"2018-01-16 18:58:43"}} [] {"uid":"38c48a4"}
+[2018-01-16 18:58:43] slim-app.DEBUG: {"result":{"content":"CREATE TABLE IF NOT EXISTS api_cris.registro (id INT AUTO_INCREMENT PRIMARY KEY)","date":"2018-01-16 18:58:43"}} [] {"uid":"38c48a4"}
+[2018-01-16 18:58:43] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.usuario_id FROM registro","date":"2018-01-16 18:58:43"}} [] {"uid":"38c48a4"}
+[2018-01-16 18:58:43] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:58:43"}} [] {"uid":"38c48a4"}
+[2018-01-16 18:58:43] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.registro ADD usuario_id INT(11) NOT NULL","date":"2018-01-16 18:58:43"}} [] {"uid":"38c48a4"}
+[2018-01-16 18:58:43] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.entrada FROM registro","date":"2018-01-16 18:58:43"}} [] {"uid":"38c48a4"}
+[2018-01-16 18:58:43] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:58:43"}} [] {"uid":"38c48a4"}
+[2018-01-16 18:58:43] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.registro ADD entrada DATETIME","date":"2018-01-16 18:58:43"}} [] {"uid":"38c48a4"}
+[2018-01-16 18:58:43] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.salida FROM registro","date":"2018-01-16 18:58:43"}} [] {"uid":"38c48a4"}
+[2018-01-16 18:58:43] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:58:43"}} [] {"uid":"38c48a4"}
+[2018-01-16 18:58:43] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.registro ADD salida DATETIME","date":"2018-01-16 18:58:43"}} [] {"uid":"38c48a4"}
+[2018-01-16 18:58:43] slim-app.DEBUG: {"result":{"content":"CREATE TABLE IF NOT EXISTS api_cris.tarjeta (id INT AUTO_INCREMENT PRIMARY KEY)","date":"2018-01-16 18:58:43"}} [] {"uid":"38c48a4"}
+[2018-01-16 18:58:43] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.n_tarjeta FROM tarjeta","date":"2018-01-16 18:58:43"}} [] {"uid":"38c48a4"}
+[2018-01-16 18:58:43] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:58:43"}} [] {"uid":"38c48a4"}
+[2018-01-16 18:58:43] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.tarjeta ADD n_tarjeta INT(11) NOT NULL","date":"2018-01-16 18:58:43"}} [] {"uid":"38c48a4"}
+[2018-01-16 18:58:43] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.usuario_id FROM tarjeta","date":"2018-01-16 18:58:43"}} [] {"uid":"38c48a4"}
+[2018-01-16 18:58:43] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:58:43"}} [] {"uid":"38c48a4"}
+[2018-01-16 18:58:43] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.tarjeta ADD usuario_id INT(11) NOT NULL","date":"2018-01-16 18:58:43"}} [] {"uid":"38c48a4"}
+[2018-01-16 18:58:43] slim-app.DEBUG: {"result":{"content":"CREATE TABLE IF NOT EXISTS api_cris.usuario (id INT AUTO_INCREMENT PRIMARY KEY)","date":"2018-01-16 18:58:43"}} [] {"uid":"38c48a4"}
+[2018-01-16 18:58:43] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.nombre FROM usuario","date":"2018-01-16 18:58:43"}} [] {"uid":"38c48a4"}
+[2018-01-16 18:58:43] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:58:43"}} [] {"uid":"38c48a4"}
+[2018-01-16 18:58:43] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.usuario ADD nombre VARCHAR(255) NOT NULL","date":"2018-01-16 18:58:43"}} [] {"uid":"38c48a4"}
+[2018-01-16 18:58:43] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.email FROM usuario","date":"2018-01-16 18:58:43"}} [] {"uid":"38c48a4"}
+[2018-01-16 18:58:43] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:58:43"}} [] {"uid":"38c48a4"}
+[2018-01-16 18:58:43] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.usuario ADD email VARCHAR(255) NOT NULL","date":"2018-01-16 18:58:43"}} [] {"uid":"38c48a4"}
+[2018-01-16 18:59:09] slim-app.DEBUG: {"result":{"content":"DROP DATABASE IF EXISTS api_cris","date":"2018-01-16 18:59:09"}} [] {"uid":"f594d2f"}
+[2018-01-16 18:59:09] slim-app.DEBUG: {"result":{"content":"CREATE DATABASE IF NOT EXISTS api_cris","date":"2018-01-16 18:59:09"}} [] {"uid":"f594d2f"}
+[2018-01-16 18:59:09] slim-app.DEBUG: {"result":{"content":"CREATE TABLE IF NOT EXISTS api_cris.registro (id INT AUTO_INCREMENT PRIMARY KEY)","date":"2018-01-16 18:59:09"}} [] {"uid":"f594d2f"}
+[2018-01-16 18:59:09] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.usuario_id FROM registro","date":"2018-01-16 18:59:09"}} [] {"uid":"f594d2f"}
+[2018-01-16 18:59:09] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:59:09"}} [] {"uid":"f594d2f"}
+[2018-01-16 18:59:09] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.registro ADD usuario_id INT(11) NOT NULL","date":"2018-01-16 18:59:09"}} [] {"uid":"f594d2f"}
+[2018-01-16 18:59:09] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.entrada FROM registro","date":"2018-01-16 18:59:09"}} [] {"uid":"f594d2f"}
+[2018-01-16 18:59:09] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:59:09"}} [] {"uid":"f594d2f"}
+[2018-01-16 18:59:09] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.registro ADD entrada DATETIME","date":"2018-01-16 18:59:09"}} [] {"uid":"f594d2f"}
+[2018-01-16 18:59:09] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.salida FROM registro","date":"2018-01-16 18:59:09"}} [] {"uid":"f594d2f"}
+[2018-01-16 18:59:09] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:59:09"}} [] {"uid":"f594d2f"}
+[2018-01-16 18:59:09] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.registro ADD salida DATETIME","date":"2018-01-16 18:59:09"}} [] {"uid":"f594d2f"}
+[2018-01-16 18:59:09] slim-app.DEBUG: {"result":{"content":"CREATE TABLE IF NOT EXISTS api_cris.tarjeta (id INT AUTO_INCREMENT PRIMARY KEY)","date":"2018-01-16 18:59:09"}} [] {"uid":"f594d2f"}
+[2018-01-16 18:59:09] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.n_tarjeta FROM tarjeta","date":"2018-01-16 18:59:09"}} [] {"uid":"f594d2f"}
+[2018-01-16 18:59:09] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:59:09"}} [] {"uid":"f594d2f"}
+[2018-01-16 18:59:09] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.tarjeta ADD n_tarjeta INT(11) NOT NULL","date":"2018-01-16 18:59:09"}} [] {"uid":"f594d2f"}
+[2018-01-16 18:59:09] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.usuario_id FROM tarjeta","date":"2018-01-16 18:59:09"}} [] {"uid":"f594d2f"}
+[2018-01-16 18:59:09] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:59:09"}} [] {"uid":"f594d2f"}
+[2018-01-16 18:59:09] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.tarjeta ADD usuario_id INT(11) NOT NULL","date":"2018-01-16 18:59:09"}} [] {"uid":"f594d2f"}
+[2018-01-16 18:59:09] slim-app.DEBUG: {"result":{"content":"CREATE TABLE IF NOT EXISTS api_cris.usuario (id INT AUTO_INCREMENT PRIMARY KEY)","date":"2018-01-16 18:59:09"}} [] {"uid":"f594d2f"}
+[2018-01-16 18:59:09] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.nombre FROM usuario","date":"2018-01-16 18:59:09"}} [] {"uid":"f594d2f"}
+[2018-01-16 18:59:09] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:59:09"}} [] {"uid":"f594d2f"}
+[2018-01-16 18:59:09] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.usuario ADD nombre VARCHAR(255) NOT NULL","date":"2018-01-16 18:59:09"}} [] {"uid":"f594d2f"}
+[2018-01-16 18:59:09] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.email FROM usuario","date":"2018-01-16 18:59:09"}} [] {"uid":"f594d2f"}
+[2018-01-16 18:59:09] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:59:09"}} [] {"uid":"f594d2f"}
+[2018-01-16 18:59:09] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.usuario ADD email VARCHAR(255) NOT NULL","date":"2018-01-16 18:59:09"}} [] {"uid":"f594d2f"}
+[2018-01-16 18:59:09] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.registro ADD FOREIGN KEY (usuario_id) REFERENCES usuario(id)","date":"2018-01-16 18:59:09"}} [] {"uid":"f594d2f"}
+[2018-01-16 18:59:09] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:59:09"}} [] {"uid":"f594d2f"}
+[2018-01-16 18:59:09] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.tarjeta ADD FOREIGN KEY (usuario_id) REFERENCES usuario(id)","date":"2018-01-16 18:59:09"}} [] {"uid":"f594d2f"}
+[2018-01-16 18:59:09] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 18:59:09"}} [] {"uid":"f594d2f"}
+[2018-01-16 19:02:34] slim-app.DEBUG: {"result":{"content":"DROP DATABASE IF EXISTS api_cris","date":"2018-01-16 19:02:34"}} [] {"uid":"56e3af5"}
+[2018-01-16 19:02:34] slim-app.DEBUG: {"result":{"content":"CREATE DATABASE IF NOT EXISTS api_cris","date":"2018-01-16 19:02:34"}} [] {"uid":"56e3af5"}
+[2018-01-16 19:02:34] slim-app.DEBUG: {"result":{"content":"CREATE TABLE IF NOT EXISTS api_cris.registro (id INT AUTO_INCREMENT PRIMARY KEY)","date":"2018-01-16 19:02:34"}} [] {"uid":"56e3af5"}
+[2018-01-16 19:02:34] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.usuario_id FROM registro","date":"2018-01-16 19:02:34"}} [] {"uid":"56e3af5"}
+[2018-01-16 19:02:34] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 19:02:34"}} [] {"uid":"56e3af5"}
+[2018-01-16 19:02:34] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.registro ADD usuario_id INT(11) NOT NULL","date":"2018-01-16 19:02:34"}} [] {"uid":"56e3af5"}
+[2018-01-16 19:02:34] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.entrada FROM registro","date":"2018-01-16 19:02:34"}} [] {"uid":"56e3af5"}
+[2018-01-16 19:02:34] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 19:02:34"}} [] {"uid":"56e3af5"}
+[2018-01-16 19:02:34] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.registro ADD entrada DATETIME","date":"2018-01-16 19:02:34"}} [] {"uid":"56e3af5"}
+[2018-01-16 19:02:34] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.salida FROM registro","date":"2018-01-16 19:02:34"}} [] {"uid":"56e3af5"}
+[2018-01-16 19:02:34] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 19:02:34"}} [] {"uid":"56e3af5"}
+[2018-01-16 19:02:34] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.registro ADD salida DATETIME","date":"2018-01-16 19:02:34"}} [] {"uid":"56e3af5"}
+[2018-01-16 19:02:34] slim-app.DEBUG: {"result":{"content":"CREATE TABLE IF NOT EXISTS api_cris.tarjeta (id INT AUTO_INCREMENT PRIMARY KEY)","date":"2018-01-16 19:02:34"}} [] {"uid":"56e3af5"}
+[2018-01-16 19:02:34] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.n_tarjeta FROM tarjeta","date":"2018-01-16 19:02:34"}} [] {"uid":"56e3af5"}
+[2018-01-16 19:02:34] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 19:02:34"}} [] {"uid":"56e3af5"}
+[2018-01-16 19:02:34] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.tarjeta ADD n_tarjeta INT(11) NOT NULL","date":"2018-01-16 19:02:34"}} [] {"uid":"56e3af5"}
+[2018-01-16 19:02:34] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.usuario_id FROM tarjeta","date":"2018-01-16 19:02:34"}} [] {"uid":"56e3af5"}
+[2018-01-16 19:02:34] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 19:02:34"}} [] {"uid":"56e3af5"}
+[2018-01-16 19:02:34] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.tarjeta ADD usuario_id INT(11) NOT NULL","date":"2018-01-16 19:02:34"}} [] {"uid":"56e3af5"}
+[2018-01-16 19:02:34] slim-app.DEBUG: {"result":{"content":"CREATE TABLE IF NOT EXISTS api_cris.usuario (id INT AUTO_INCREMENT PRIMARY KEY)","date":"2018-01-16 19:02:34"}} [] {"uid":"56e3af5"}
+[2018-01-16 19:02:34] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.nombre FROM usuario","date":"2018-01-16 19:02:34"}} [] {"uid":"56e3af5"}
+[2018-01-16 19:02:34] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 19:02:34"}} [] {"uid":"56e3af5"}
+[2018-01-16 19:02:34] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.usuario ADD nombre VARCHAR(255) NOT NULL","date":"2018-01-16 19:02:34"}} [] {"uid":"56e3af5"}
+[2018-01-16 19:02:34] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.email FROM usuario","date":"2018-01-16 19:02:34"}} [] {"uid":"56e3af5"}
+[2018-01-16 19:02:34] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 19:02:34"}} [] {"uid":"56e3af5"}
+[2018-01-16 19:02:34] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.usuario ADD email VARCHAR(255) NOT NULL","date":"2018-01-16 19:02:34"}} [] {"uid":"56e3af5"}
+[2018-01-16 19:02:35] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.registro ADD FOREIGN KEY (usuario_id) REFERENCES api_crisusuario(id)","date":"2018-01-16 19:02:35"}} [] {"uid":"56e3af5"}
+[2018-01-16 19:02:35] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 19:02:35"}} [] {"uid":"56e3af5"}
+[2018-01-16 19:02:35] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.tarjeta ADD FOREIGN KEY (usuario_id) REFERENCES api_crisusuario(id)","date":"2018-01-16 19:02:35"}} [] {"uid":"56e3af5"}
+[2018-01-16 19:02:35] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 19:02:35"}} [] {"uid":"56e3af5"}
+[2018-01-16 19:03:02] slim-app.DEBUG: {"result":{"content":"DROP DATABASE IF EXISTS api_cris","date":"2018-01-16 19:03:02"}} [] {"uid":"34c2c8d"}
+[2018-01-16 19:03:02] slim-app.DEBUG: {"result":{"content":"CREATE DATABASE IF NOT EXISTS api_cris","date":"2018-01-16 19:03:02"}} [] {"uid":"34c2c8d"}
+[2018-01-16 19:03:02] slim-app.DEBUG: {"result":{"content":"CREATE TABLE IF NOT EXISTS api_cris.registro (id INT AUTO_INCREMENT PRIMARY KEY)","date":"2018-01-16 19:03:02"}} [] {"uid":"34c2c8d"}
+[2018-01-16 19:03:02] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.usuario_id FROM registro","date":"2018-01-16 19:03:02"}} [] {"uid":"34c2c8d"}
+[2018-01-16 19:03:02] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 19:03:02"}} [] {"uid":"34c2c8d"}
+[2018-01-16 19:03:02] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.registro ADD usuario_id INT(11) NOT NULL","date":"2018-01-16 19:03:02"}} [] {"uid":"34c2c8d"}
+[2018-01-16 19:03:02] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.entrada FROM registro","date":"2018-01-16 19:03:02"}} [] {"uid":"34c2c8d"}
+[2018-01-16 19:03:02] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 19:03:02"}} [] {"uid":"34c2c8d"}
+[2018-01-16 19:03:02] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.registro ADD entrada DATETIME","date":"2018-01-16 19:03:02"}} [] {"uid":"34c2c8d"}
+[2018-01-16 19:03:02] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.salida FROM registro","date":"2018-01-16 19:03:02"}} [] {"uid":"34c2c8d"}
+[2018-01-16 19:03:02] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 19:03:02"}} [] {"uid":"34c2c8d"}
+[2018-01-16 19:03:02] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.registro ADD salida DATETIME","date":"2018-01-16 19:03:02"}} [] {"uid":"34c2c8d"}
+[2018-01-16 19:03:02] slim-app.DEBUG: {"result":{"content":"CREATE TABLE IF NOT EXISTS api_cris.tarjeta (id INT AUTO_INCREMENT PRIMARY KEY)","date":"2018-01-16 19:03:02"}} [] {"uid":"34c2c8d"}
+[2018-01-16 19:03:02] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.n_tarjeta FROM tarjeta","date":"2018-01-16 19:03:02"}} [] {"uid":"34c2c8d"}
+[2018-01-16 19:03:02] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 19:03:02"}} [] {"uid":"34c2c8d"}
+[2018-01-16 19:03:02] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.tarjeta ADD n_tarjeta INT(11) NOT NULL","date":"2018-01-16 19:03:02"}} [] {"uid":"34c2c8d"}
+[2018-01-16 19:03:02] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.usuario_id FROM tarjeta","date":"2018-01-16 19:03:02"}} [] {"uid":"34c2c8d"}
+[2018-01-16 19:03:02] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 19:03:02"}} [] {"uid":"34c2c8d"}
+[2018-01-16 19:03:02] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.tarjeta ADD usuario_id INT(11) NOT NULL","date":"2018-01-16 19:03:02"}} [] {"uid":"34c2c8d"}
+[2018-01-16 19:03:02] slim-app.DEBUG: {"result":{"content":"CREATE TABLE IF NOT EXISTS api_cris.usuario (id INT AUTO_INCREMENT PRIMARY KEY)","date":"2018-01-16 19:03:02"}} [] {"uid":"34c2c8d"}
+[2018-01-16 19:03:02] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.nombre FROM usuario","date":"2018-01-16 19:03:02"}} [] {"uid":"34c2c8d"}
+[2018-01-16 19:03:02] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 19:03:02"}} [] {"uid":"34c2c8d"}
+[2018-01-16 19:03:02] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.usuario ADD nombre VARCHAR(255) NOT NULL","date":"2018-01-16 19:03:02"}} [] {"uid":"34c2c8d"}
+[2018-01-16 19:03:02] slim-app.DEBUG: {"result":{"content":"SELECT api_cris.email FROM usuario","date":"2018-01-16 19:03:02"}} [] {"uid":"34c2c8d"}
+[2018-01-16 19:03:02] slim-app.DEBUG: {"error":{"content":"SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected","date":"2018-01-16 19:03:02"}} [] {"uid":"34c2c8d"}
+[2018-01-16 19:03:02] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.usuario ADD email VARCHAR(255) NOT NULL","date":"2018-01-16 19:03:02"}} [] {"uid":"34c2c8d"}
+[2018-01-16 19:03:02] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.registro ADD FOREIGN KEY (usuario_id) REFERENCES api_cris.usuario(id)","date":"2018-01-16 19:03:02"}} [] {"uid":"34c2c8d"}
+[2018-01-16 19:03:02] slim-app.DEBUG: {"result":{"content":"ALTER TABLE api_cris.tarjeta ADD FOREIGN KEY (usuario_id) REFERENCES api_cris.usuario(id)","date":"2018-01-16 19:03:02"}} [] {"uid":"34c2c8d"}

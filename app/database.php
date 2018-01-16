@@ -99,8 +99,11 @@ class ConsultaController {
 			}
 		}
 		if($type_create == "COLUMN"){ //OBJECT_CREATE LIKE ["TABLENAME","NAMECOLUMNS","OBJECT COLUMNS"]
-			if($object_create[2] == "FOREIGN") //EN EL CASO QUE SE AGREGUE UNA LLAVE FORANEA
-				$this->executeQuery("ALTER TABLE $this->dbname.$object_create[0] ADD $object_create[1] $object_create[2]"); //IF NOT EXISTS THAT CREATE
+			if($object_create[1] == "FOREIGN"){ //EN EL CASO QUE SE AGREGUE UNA LLAVE FORANEA NO ES NECESARIO EL SELECT
+				$exp = explode(" ",$object_create[2])[0]." ".explode(" ",$object_create[2])[1]." ".explode(" ",$object_create[2])[2]." ";
+				$exp .= $this->dbname.".".explode(" ",$object_create[2])[3];
+				$this->executeQuery("ALTER TABLE $this->dbname.$object_create[0] ADD FOREIGN $exp"); //IF NOT EXISTS THAT CREATE
+			}
 			else{
 				$column = $this->executeQuery("SELECT $this->dbname.$object_create[1] FROM $object_create[0]"); //VERIFY IF COLUMN EXIST
 				if (!$column)
@@ -206,6 +209,10 @@ class ConsultaController {
 			for($i = 0 ; $i < count($value) ; $i++)
 				$this->buildInsert($key,$value[$i]);
 		}
+		//INSERT FOREING KEY
+		foreach ($modelDB["foreign"] as $key => $value) {
+			$this->buildCreate("COLUMN",[$key,"FOREIGN",$value]);
+		}
 	}
 	private function buildBackup($dbname,$tables,$compression,$format) {
  		//VERIFICAMOS QUE EXISTA EL SCHEMA ANTES DE HACER EL BACKUP, EN EL CASO QUE SEA LA PRIMERA CARGA DEL SCHEMA
@@ -224,7 +231,6 @@ class ConsultaController {
 			    exec($cmd);
 			}
 			chdir($date);
-			var_dump("hola");
 			//array of all database field types which just take numbers
 			$numtypes = array('tinyint', 'smallint', 'mediumint', 'int', 'bigint', 'float', 'double', 'decimal', 'real');
 
