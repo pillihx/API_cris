@@ -4,9 +4,9 @@ return array(
 		"registro",
 		array(
 			"id" => "INT AUTO_INCREMENT PRIMARY KEY",
-			"usuario_id" => "INT(11) NOT NULL",
-			"entrada" => "DATETIME",
-			"salida" => "DATETIME"
+			"tarjeta_id" => "INT NOT NULL",
+			"tipo" => "TINYINT(1)",
+			"datetime" => "DATETIME"
 		),
-		"KEY (usuario_id) REFERENCES usuario(id)"
+		"KEY (tarjeta_id) REFERENCES tarjeta(id)"
 );

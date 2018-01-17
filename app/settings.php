@@ -18,11 +18,11 @@ return [
 
         // Base de datos
         'db' => [
-            'servername' => 'localhost',
+            'servername' => '149.56.240.183',
             'port' => ':3306',
-            'username' => 'admin',
-            'password' => 'hWmxsW2oOgf2',
-            'dbname' => 'api_cris',
+            'username' => 'railstack_jmiranda',
+            'password' => 'xpressium18',
+            'dbname' => 'railstack_api_cris',
             'charset' => 'utf8',
         ]
     ],

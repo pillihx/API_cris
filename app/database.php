@@ -111,7 +111,7 @@ class ConsultaController {
 			}
 		}
 	}
-	public function buildSelect($table_name,$columns,$where_select){
+	public function buildSelect($table_name,$columns,$where_select,$where_plus=null){
 		$query_select = "SELECT ";
 		//FILL COLUMNS FOR GET
 		foreach ($columns as $c) {
@@ -127,6 +127,21 @@ class ConsultaController {
 			foreach ($where_select as $key => $value) {
 				$query_select .= $key . "=" . ":" . $key;
 				if($key != $last_key) $query_select .= " AND ";
+			}
+			if($where_plus != null){//WHERE PLUS
+				$length_where_plus = count($where_plus);
+				$count = 0;
+				if($where_plus[0][0] != " ORDER"){
+					$query_select .= " AND ";
+					foreach($where_plus as $value) {
+						$count += 1;
+						$query_select .= $value[0] . $value[1] . ":" . $value[0];
+						if($count < $length_where_plus) $query_select .= " AND ";
+						$where_select[$value[0]] = $value[2];
+					}
+				}
+				else
+					$query_select .= " ORDER BY ".$where_plus[0][2];
 			}
 			return $this->executeQuery($query_select,$where_select);
 		}
@@ -158,7 +173,7 @@ class ConsultaController {
 	}
 	public function buildDelete($type_delete,$object_delete){
 		if($type_delete == "SCHEMA"){
-			$this->buildBackup($object_delete,[],null,".sql"); //GENERATE BACKUP TABLES
+			//$this->buildBackup($object_delete,[],null,".sql"); //GENERATE BACKUP TABLES
 			$this->executeQuery("DROP DATABASE IF EXISTS $object_delete"); //DELETE DATABASE
 		}
 		if($type_delete == "TABLE");
@@ -204,14 +219,14 @@ class ConsultaController {
 		foreach ($modelDB["tables"] as $key => $value) {
 			$this->buildCreate("TABLE",[$key,$value]);
 		}
+		//INSERT FOREING KEY
+		foreach ($modelDB["foreign"] as $key => $value) {
+			$this->buildCreate("COLUMN",[$key,"FOREIGN",$value]);
+		}
 		//INSERT SEEDS
 		foreach ($modelDB["seeds"] as $key => $value) {
 			for($i = 0 ; $i < count($value) ; $i++)
 				$this->buildInsert($key,$value[$i]);
-		}
-		//INSERT FOREING KEY
-		foreach ($modelDB["foreign"] as $key => $value) {
-			$this->buildCreate("COLUMN",[$key,"FOREIGN",$value]);
 		}
 	}
 	private function buildBackup($dbname,$tables,$compression,$format) {
