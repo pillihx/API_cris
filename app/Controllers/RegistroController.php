@@ -39,7 +39,8 @@ class RegistroController extends BaseController {
 					}
 				}
 				$result = $this->DB->buildInsert("registro",$values);
-				return $response->withJson(array('status' => $message_response, "datetime" => date('Y-m-d H:i:s')), 200);
+				//return $response->withJson(array('status' => $message_response, "datetime" => date('Y-m-d H:i:s')), 200);
+				return $response->write($n_tarjeta . " - " . date('Y-m-d H:i:s'));
 			}
 			else
 				return $response->withJson(array('status' => 'El numero de la tarjeta ingresada no pertenece a ningun usuario', "datetime" => date('Y-m-d H:i:s')), 422);
